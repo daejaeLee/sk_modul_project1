@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>view</title>
+</head>
+<body>
+    <h1 align='center'>View <h1>
+    <table align='center' border='1'>
+        <tr style='background-color:rgb(237,237,237);'>
+            <td align='center'style="width:40px;">제목
+            <td style="width:670px;padding-left:5px;">{{title}}
+        <tr>
+            <td colspan='2'>
+            작성 일 : {{write_time.date|date:'c'}}
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            작성자 : {{email}}
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            조회 수 : {{v_num}}
+        <tr style='background-color:rgb(237,237,237);'>
+            <td align='center' colspan='2'>내용
+        <tr>
+            <td colspan='2'>
+            {{content}}
+        <tr>
+            <td align='center' colspan='2'>
+            <input type='button' value='글 수정' onclick="location.href='update?b_num={{b_num}}'">
+            <input type='button' value='글 삭제' onclick="location.href='delete?b_num={{b_num}}'">
+            <input type='button' value='글 목록' onclick="location.href='/board'">
+    </table>
+</body>
+</html>

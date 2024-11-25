@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>글 작성</title>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function updateCheck(){
+    var title = document.update_frm.title.value;
+    var content = document.update_frm.content.value;
+
+    else if (content === "") {
+    alert("수정 할 내용을 입력해주세요");
+    document.update_frm.content.focus();
+    event.preventDefault(); // 폼 제출 막기
+    }
+    return true;
+    }
+</script>
+</head>
+<body>
+    <h1 align='center'>글을 써보자 <h1>
+    <form method="POST" action="{% url 'board:board_update'%}" name="update_frm" onsubmit="updateCheck();">
+        {% csrf_token %}
+        <input type='hidden' value={{b_num}} name='b_num'>
+    <table align='center' border='1'>
+        <tr style='background-color:rgb(237,237,237);'>
+            <td align='center'style="width:40px;">제목
+            <td style="width:670px;padding-left:5px;">{{title}}
+        <tr>
+            <td align='center' colspan='2'>내용
+        <tr>
+            <td colspan='2'>
+            <textarea name='content' cols="100" rows='30' 
+            maxlength='5000'style='resize:none;'>{{content}}</textarea>
+        <tr>
+            <td align='center' colspan='2'>
+            <input type='submit' value='글 등록'>
+            <input type='reset' value='초기화'>
+            <input type='button' value='글 목록' onclick="location.href='/board'">
+    </table>
+    </form>
+</body>
+</html>
