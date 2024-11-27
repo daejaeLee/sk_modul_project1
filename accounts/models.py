@@ -15,4 +15,4 @@ class CustomUser(AbstractUser):  #
     objects = CustomUserManager()  # 커스텀 매니저 설정
 
     class Meta:
-        db_table = 'users'  # 데이터베이스 테이블 이름 설정
+        db_table = 'user'  # 데이터베이스 테이블 이름 설정
